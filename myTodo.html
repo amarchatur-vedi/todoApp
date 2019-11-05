@@ -1,0 +1,97 @@
+<html>
+<head>
+<style>
+.container{
+	border:1px solid black;
+	width:350px;
+	height:500px;
+	position:absolute;
+	left:30%;
+	top:10%;
+	background:#c1c1c1;
+}
+.manupulator{
+text-align:center;
+}
+.button{
+	margin-top:10px;
+	width:175px;
+	height:30px;
+	border-radius:40px;
+	color:white;
+	background:black;
+}
+input[type='text']{
+	width:175px;
+	height:30px;
+	border-radius:40px;
+}
+.result{
+	margin-left:20%;
+	float:left;
+}
+input[type='checkbox']{
+	padding:100px;
+	zoom: 2;
+}
+label{
+	font-size:25px;
+}
+</style>
+</head>
+<body>
+
+<div class='container'>
+	<div class='manupulator'>
+		<h2>Todo application</h2>
+		<input type='text' id='tasks'><br>
+		<button id='addTask' class='button' onclick="addItem()">Add task</button><br>
+		<button id='removeTask' class='button' onclick="removeItem()">Remove task</button><br>
+	</div>
+	<hr>
+	<div class='result'>
+		<input type='checkbox' class='checkbox' checked><label class='label'>Go to Gym</label><br>
+		<input type='checkbox' class='checkbox'><label class='label'>Code something</label><br>
+		<input type='checkbox' class='checkbox'><label class='label'>Go to bed</label><br>
+	</div>
+</div>
+
+<script>
+function addItem(){
+	addTask = document.querySelector('#tasks').value;
+	newEle = document.createElement('input');
+	newEle.setAttribute('type','checkbox');
+	newEle.setAttribute('class','checkbox');
+	document.querySelector('.result').appendChild(newEle);
+	
+	newLabel = document.createElement('label');
+	newLabel.textContent = addTask;
+	newLabel.setAttribute('class','label');
+	document.querySelector('.result').appendChild(newLabel);
+	
+	lineBreak = document.createElement('br');
+	document.querySelector('.result').appendChild(lineBreak);
+}
+
+function removeItem(){
+	i=0;
+	tasks = document.querySelectorAll('.checkbox');
+	desc = document.querySelectorAll('.label');
+	while(i < tasks.length){
+		if(tasks[i].checked ===true){
+		document.querySelector('.result').removeChild(tasks[i]);
+		document.querySelector('.result').removeChild(desc[i]);
+		}
+		i++;
+	}
+}
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
