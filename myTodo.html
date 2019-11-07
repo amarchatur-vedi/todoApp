@@ -50,13 +50,33 @@ label{
 	</div>
 	<hr>
 	<div class='result'>
-		<input type='checkbox' class='checkbox' checked><label class='label'>Go to Gym</label><br>
-		<input type='checkbox' class='checkbox'><label class='label'>Code something</label><br>
-		<input type='checkbox' class='checkbox'><label class='label'>Go to bed</label><br>
+	
 	</div>
 </div>
 
 <script>
+//localStorage.setItem('Amar','Amar');
+//localStorage.setItem('Amit','Amit');
+//localStorage.setItem('Rahul','Rahul');
+//console.log(localStorage.length);
+
+k = 0;
+while(k<localStorage.length){
+console.log(localStorage.getItem(localStorage.key(k)));
+	newEle = document.createElement('input');
+	newEle.setAttribute('type','checkbox');
+	newEle.setAttribute('class','checkbox');
+	document.querySelector('.result').appendChild(newEle);
+	
+	newLabel = document.createElement('label');
+	newLabel.textContent = localStorage.getItem(localStorage.key(k));
+	newLabel.setAttribute('class','label');
+	document.querySelector('.result').appendChild(newLabel);
+	
+	lineBreak = document.createElement('br');
+	document.querySelector('.result').appendChild(lineBreak);
+	k++
+}
 function addItem(){
 	addTask = document.querySelector('#tasks').value;
 	newEle = document.createElement('input');
@@ -66,6 +86,7 @@ function addItem(){
 	
 	newLabel = document.createElement('label');
 	newLabel.textContent = addTask;
+	localStorage.setItem(addTask,addTask);
 	newLabel.setAttribute('class','label');
 	document.querySelector('.result').appendChild(newLabel);
 	
@@ -81,6 +102,7 @@ function removeItem(){
 		if(tasks[i].checked ===true){
 		document.querySelector('.result').removeChild(tasks[i]);
 		document.querySelector('.result').removeChild(desc[i]);
+		localStorage.removeItem(desc[i].textContent);
 		}
 		i++;
 	}
