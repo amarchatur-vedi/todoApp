@@ -1,0 +1,85 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    width: 300px;
+    background-color: rgb(136, 136, 136);
+    border-radius: 20px;
+}
+
+.header-image{
+    position: relative;
+    background: url("sky.jpg") no-repeat;
+    background-size: 100% 100%;
+    height: 150px;
+    width: 300px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.task-adder{
+    position: absolute;
+    bottom: 10px;
+}
+
+input[type="text"]{
+    width: 250px;
+    height: 25px;
+    border-radius: 30px;
+    padding-left: 10px;
+    margin-left: 5%;
+}
+
+#adder-button{
+    font-size: 20px;
+    font-weight: bold;
+    width: 35px;
+    height: 35px;
+    margin-left: -12%;
+    border-radius: 50%;
+    border: 1px solid silver;
+    background-color: black;
+    color: white;
+}
+
+#day-date{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    margin-left: 5%;
+}
+
+.tasks{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.task-deletion{
+    position: absolute;
+    right: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(136, 136, 136);
+    border: none;
+}
+
+input[type="checkbox"]{
+    zoom: 1.5;
+    position: absolute;
+    left: 10px;
+}
+
+#task-checkbox:checked{
+    pointer-events: none;
+}
+
+#task-checkbox:checked ~ #task-content{
+    text-decoration: line-through;
+} 
